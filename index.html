@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paquete Digital Completo — POS + Catálogo + Landing + Campaña Meta</title>
+<meta name="description" content="Sistema POS, catálogo en línea, landing page y campaña en Meta Ads. Precio especial de noviembre: $499 (valor real $625).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --morado:#700093;
+    --morado-osc:#4d0066;
+    --morado-cl:#9b30c0;
+    --blanco:#ffffff;
+    --negro:#111111;
+    --gris:#f5f2f7;
+    --gris-txt:#5a5560;
+    --rojo:#e10600;
+    --rojo-osc:#b00500;
+    --sombra:0 18px 45px rgba(112,0,147,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+    color:var(--negro);
+    background:var(--blanco);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 22px;}
+
+  /* ===== BARRA SUPERIOR ===== */
+  .topbar{
+    background:var(--negro);
+    color:var(--blanco);
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:10px 16px;
+  }
+  .topbar strong{color:#d9a6f0;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:linear-gradient(145deg,var(--morado) 0%,var(--morado-osc) 60%,#2e0040 100%);
+    color:var(--blanco);
+    padding:72px 0 96px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    width:620px;height:620px;
+    background:radial-gradient(circle,rgba(155,48,192,.55),transparent 65%);
+    top:-260px;right:-180px;
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    width:420px;height:420px;
+    background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%);
+    bottom:-200px;left:-140px;
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .badge{
+    display:inline-block;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.32);
+    color:var(--blanco);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:8px 16px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(1.95rem,4.4vw,3.15rem);
+    font-weight:900;
+    line-height:1.12;
+    letter-spacing:-.02em;
+    margin-bottom:20px;
+  }
+  .hero h1 span{
+    background:linear-gradient(90deg,#fff,#e2b6f5);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero p.sub{
+    font-size:1.06rem;
+    font-weight:500;
+    color:rgba(255,255,255,.88);
+    max-width:530px;
+    margin-bottom:30px;
+  }
+  .hero-list{
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 18px;
+    margin-bottom:34px;
+    max-width:540px;
+  }
+  .hero-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:.92rem;
+    font-weight:600;
+    color:rgba(255,255,255,.95);
+  }
+  .hero-list li::before{
+    content:"✓";
+    flex:0 0 20px;
+    height:20px;
+    display:grid;
+    place-items:center;
+    background:var(--blanco);
+    color:var(--morado);
+    border-radius:50%;
+    font-size:.7rem;
+    font-weight:900;
+    margin-top:3px;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn{
+    display:inline-block;
+    font-family:inherit;
+    font-weight:800;
+    font-size:1rem;
+    letter-spacing:.02em;
+    text-decoration:none;
+    border-radius:12px;
+    padding:17px 34px;
+    transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    cursor:pointer;
+    border:none;
+  }
+  .btn-primary{
+    background:var(--blanco);
+    color:var(--morado);
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(0,0,0,.34);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--blanco);
+    border:2px solid rgba(255,255,255,.55);
+    padding:15px 30px;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:var(--blanco);}
+  .micro{
+    font-size:.78rem;
+    font-weight:600;
+    color:rgba(255,255,255,.7);
+    margin-top:16px;
+    letter-spacing:.03em;
+  }
+
+  /* ===== TARJETA DE PRECIO (HERO) ===== */
+  .price-card{
+    background:var(--blanco);
+    color:var(--negro);
+    border-radius:22px;
+    padding:36px 32px 32px;
+    box-shadow:var(--sombra);
+    position:relative;
+    border-top:6px solid var(--morado);
+  }
+  .price-card .tag{
+    position:absolute;
+    top:-16px;left:50%;
+    transform:translateX(-50%);
+    background:var(--morado);
+    color:var(--blanco);
+    font-size:.68rem;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:8px 20px;
+    border-radius:999px;
+    white-space:nowrap;
+    box-shadow:0 8px 20px rgba(112,0,147,.35);
+  }
+  .old-price{
+    text-align:center;
+    font-size:1rem;
+    font-weight:600;
+    color:var(--gris-txt);
+    margin-bottom:4px;
+  }
+  .old-price s{color:#9a94a0;}
+  .save-pill{
+    display:block;
+    width:fit-content;
+    margin:0 auto 14px;
+    background:#efe0f6;
+    color:var(--morado-osc);
+    font-size:.74rem;
+    font-weight:800;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:999px;
+  }
+  .now-price{
+    text-align:center;
+    font-size:3.4rem;
+    font-weight:900;
+    letter-spacing:-.03em;
+    color:var(--morado);
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .now-price sup{font-size:1.4rem;font-weight:800;top:-1.1em;}
+  .price-note{
+    text-align:center;
+    font-size:.8rem;
+    font-weight:600;
+    color:var(--gris-txt);
+    margin-bottom:24px;
+  }
+  .price-card ul{
+    list-style:none;
+    border-top:1px solid #eae4ee;
+    padding-top:20px;
+    margin-bottom:24px;
+  }
+  .price-card ul li{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    font-size:.88rem;
+    font-weight:600;
+    padding:7px 0;
+    color:#332c3a;
+  }
+  .price-card ul li span:last-child{
+    color:var(--gris-txt);
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .price-card ul li span:last-child s{color:#b3acba;font-weight:600;}
+  .price-card .btn{width:100%;text-align:center;}
+  .btn-morado{
+    background:var(--morado);
+    color:var(--blanco);
+    box-shadow:0 12px 28px rgba(112,0,147,.32);
+  }
+  .btn-morado:hover{background:var(--morado-osc);transform:translateY(-3px);}
+  .secure{
+    text-align:center;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--gris-txt);
+    margin-top:14px;
+    letter-spacing:.03em;
+  }
+
+  /* ===== FRANJA DE VALOR ===== */
+  .strip{
+    background:var(--negro);
+    color:var(--blanco);
+    padding:22px 0;
+  }
+  .strip .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px 46px;
+  }
+  .strip div{
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:rgba(255,255,255,.9);
+  }
+  .strip div::before{content:"◆";color:var(--morado-cl);font-size:.65rem;}
+
+  /* ===== SECCIONES ===== */
+  section{padding:88px 0;}
+  .sec-head{text-align:center;max-width:720px;margin:0 auto 56px;}
+  .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--morado);
+    margin-bottom:14px;
+  }
+  .sec-head h2{
+    font-size:clamp(1.6rem,3.2vw,2.35rem);
+    font-weight:900;
+    letter-spacing:-.02em;
+    line-height:1.18;
+    margin-bottom:14px;
+  }
+  .sec-head p{
+    font-size:1rem;
+    font-weight:500;
+    color:var(--gris-txt);
+  }
+
+  /* ===== QUÉ INCLUYE ===== */
+  #incluye{background:var(--gris);}
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:24px;
+  }
+  .card{
+    background:var(--blanco);
+    border-radius:18px;
+    padding:32px 26px;
+    border:1px solid #ece6f0;
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+    position:relative;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(112,0,147,.13);border-color:#dcc7e8;}
+  .card .ico{
+    width:52px;height:52px;
+    border-radius:14px;
+    background:linear-gradient(140deg,var(--morado),var(--morado-cl));
+    color:var(--blanco);
+    display:grid;
+    place-items:center;
+    font-size:1.4rem;
+    font-weight:900;
+    margin-bottom:18px;
+  }
+  .card h3{font-size:1.08rem;font-weight:800;margin-bottom:9px;letter-spacing:-.01em;}
+  .card p{font-size:.89rem;font-weight:500;color:var(--gris-txt);margin-bottom:16px;}
+  .card .val{
+    font-size:.78rem;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--morado);
+    border-top:1px dashed #e4d6ec;
+    padding-top:13px;
+  }
+
+  /* ===== TABLA DE VALOR ===== */
+  .value-box{
+    background:var(--blanco);
+    border:2px solid var(--morado);
+    border-radius:22px;
+    max-width:600px;
+    margin:0 auto;
+    overflow:hidden;
+    box-shadow:var(--sombra);
+  }
+  .value-box .vb-head{
+    background:var(--morado);
+    color:var(--blanco);
+    text-align:center;
+    padding:20px;
+    font-size:.8rem;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .value-box table{width:100%;border-collapse:collapse;}
+  .value-box td{
+    padding:15px 24px;
+    font-size:.92rem;
+    font-weight:600;
+    border-bottom:1px solid #f0eaf3;
+  }
+  .value-box td:last-child{text-align:right;color:var(--gris-txt);font-weight:700;white-space:nowrap;}
+  .value-box tr.total td{
+    background:#faf5fc;
+    font-size:1rem;
+    font-weight:900;
+    color:var(--negro);
+    border-bottom:none;
+  }
+  .value-box tr.total td:last-child{color:var(--morado);font-size:1.15rem;}
+  .value-box .vb-foot{
+    padding:26px 24px 30px;
+    text-align:center;
+    background:#faf5fc;
+  }
+  .value-box .vb-foot .now{
+    font-size:2.6rem;
+    font-weight:900;
+    color:var(--morado);
+    letter-spacing:-.03em;
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .value-box .vb-foot .now sup{font-size:1.1rem;top:-1em;}
+  .value-box .vb-foot .save{
+    font-size:.82rem;
+    font-weight:700;
+    color:var(--gris-txt);
+    margin-bottom:20px;
+  }
+  .value-box .vb-foot .btn{width:100%;}
+
+  /* ===== BLACK FRIDAY (OCULTO POR DEFECTO) ===== */
+  /* ============================================================
+     BLOQUE BLACK FRIDAY — PARA ACTIVAR:
+     1) Cambiar  class="bf-hidden"  por  class="bf-active"  en el <section id="blackfriday">
+     2) Ajustar la fecha límite en el texto (BUSCAR: [FECHA LÍMITE])
+     3) Verificar el precio BF (por defecto $399 = 20% sobre $499)
+     4) Opcional: mover/duplicar el enlace #blackfriday en la barra superior
+     ============================================================ */
+  .bf-hidden{display:none !important;}
+  .bf-active{
+    display:block;
+    background:linear-gradient(150deg,#1a0010 0%,#3d0018 55%,#5c0020 100%);
+    color:var(--blanco);
+    position:relative;
+    overflow:hidden;
+    border-top:4px solid var(--rojo);
+    border-bottom:4px solid var(--rojo);
+  }
+  .bf-active::before{
+    content:"";
+    position:absolute;
+    width:560px;height:560px;
+    background:radial-gradient(circle,rgba(225,6,0,.35),transparent 68%);
+    top:-220px;right:-160px;
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .bf-active .wrap{position:relative;z-index:2;text-align:center;}
+  .bf-flag{
+    display:inline-block;
+    background:var(--rojo);
+    color:var(--blanco);
+    font-size:.74rem;
+    font-weight:900;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:9px 22px;
+    border-radius:6px;
+    margin-bottom:22px;
+    box-shadow:0 0 0 4px rgba(225,6,0,.18);
+    animation:bfpulse 2.2s ease-in-out infinite;
+  }
+  @keyframes bfpulse{
+    0%,100%{box-shadow:0 0 0 4px rgba(225,6,0,.18);}
+    50%{box-shadow:0 0 0 11px rgba(225,6,0,.05);}
+  }
+  .bf-active h2{
+    font-size:clamp(1.8rem,4vw,2.9rem);
+    font-weight:900;
+    letter-spacing:-.02em;
+    line-height:1.12;
+    margin-bottom:16px;
+  }
+  .bf-active h2 em{
+    font-style:normal;
+    color:#ff5a52;
+    text-shadow:0 0 26px rgba(225,6,0,.55);
+  }
+  .bf-active p.lead{
+    font-size:1.02rem;
+    font-weight:500;
+    color:rgba(255,255,255,.82);
+    max-width:620px;
+    margin:0 auto 34px;
+  }
+  .bf-price-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:flex-end;
+    gap:10px 26px;
+    margin-bottom:10px;
+  }
+  .bf-price-row .antes{
+    font-size:1.15rem;
+    font-weight:700;
+    color:rgba(255,255,255,.6);
+    padding-bottom:10px;
+  }
+  .bf-price-row .antes s{color:rgba(255,255,255,.5);}
+  .bf-price-row .bf-now{
+    font-size:clamp(3rem,7vw,4.4rem);
+    font-weight:900;
+    color:var(--blanco);
+    letter-spacing:-.04em;
+    line-height:1;
+    text-shadow:0 0 40px rgba(225,6,0,.5);
+  }
+  .bf-price-row .bf-now sup{font-size:1.4rem;top:-1em;color:#ff5a52;}
+  .bf-off{
+    display:inline-block;
+    background:var(--rojo);
+    color:var(--blanco);
+    font-size:.8rem;
+    font-weight:900;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:7px 16px;
+    border-radius:6px;
+    margin-bottom:28px;
+  }
+  .bf-cta{
+    background:var(--rojo);
+    color:var(--blanco);
+    font-size:1.05rem;
+    padding:19px 44px;
+    border-radius:12px;
+    box-shadow:0 16px 40px rgba(225,6,0,.42);
+    display:inline-block;
+  }
+  .bf-cta:hover{background:var(--rojo-osc);transform:translateY(-3px);}
+  .bf-deadline{
+    margin-top:20px;
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#ff9a95;
+  }
+  .bf-cupos{
+    margin-top:8px;
+    font-size:.78rem;
+    font-weight:600;
+    color:rgba(255,255,255,.55);
+  }
+
+  /* Enlace BF en topbar (oculto por defecto) */
+  .bf-link{display:none;}
+  .bf-link.on{display:inline;}
+  .bf-link a{color:#ff5a52;text-decoration:underline;font-weight:800;}
+
+  /* ===== CÓMO FUNCIONA ===== */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:26px;
+    counter-reset:paso;
+  }
+  .step{
+    position:relative;
+    padding:34px 24px 28px;
+    border-radius:16px;
+    background:var(--blanco);
+    border:1px solid #ece6f0;
+    counter-increment:paso;
+  }
+  .step::before{
+    content:counter(paso);
+    position:absolute;
+    top:-20px;left:24px;
+    width:44px;height:44px;
+    display:grid;
+    place-items:center;
+    background:var(--morado);
+    color:var(--blanco);
+    font-size:1.1rem;
+    font-weight:900;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(112,0,147,.3);
+  }
+  .step h3{font-size:1rem;font-weight:800;margin:6px 0 8px;}
+  .step p{font-size:.87rem;font-weight:500;color:var(--gris-txt);}
+
+  /* ===== FAQ ===== */
+  #faq{background:var(--gris);}
+  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:14px;}
+  details{
+    background:var(--blanco);
+    border:1px solid #ece6f0;
+    border-radius:14px;
+    padding:0 24px;
+    transition:border-color .2s ease,box-shadow .2s ease;
+  }
+  details[open]{border-color:var(--morado);box-shadow:0 12px 28px rgba(112,0,147,.1);}
+  summary{
+    cursor:pointer;
+    list-style:none;
+    padding:20px 0;
+    font-size:.95rem;
+    font-weight:700;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";
+    font-size:1.35rem;
+    font-weight:700;
+    color:var(--morado);
+    transition:transform .2s ease;
+    line-height:1;
+  }
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{
+    font-size:.88rem;
+    font-weight:500;
+    color:var(--gris-txt);
+    padding:0 0 22px;
+    max-width:92%;
+  }
+
+  /* ===== CTA FINAL ===== */
+  .final{
+    background:linear-gradient(145deg,var(--morado) 0%,var(--morado-osc) 70%,#2e0040 100%);
+    color:var(--blanco);
+    text-align:center;
+    padding:96px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .final::before{
+    content:"";
+    position:absolute;
+    width:600px;height:600px;
+    background:radial-gradient(circle,rgba(155,48,192,.4),transparent 68%);
+    bottom:-280px;left:50%;
+    transform:translateX(-50%);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .final .wrap{position:relative;z-index:2;}
+  .final h2{
+    font-size:clamp(1.7rem,3.6vw,2.6rem);
+    font-weight:900;
+    letter-spacing:-.02em;
+    line-height:1.15;
+    margin-bottom:16px;
+  }
+  .final p{
+    font-size:1rem;
+    font-weight:500;
+    color:rgba(255,255,255,.85);
+    max-width:560px;
+    margin:0 auto 34px;
+  }
+  .final .precio-mini{
+    display:inline-block;
+    margin-bottom:26px;
+    font-size:.85rem;
+    font-weight:800;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.75);
+  }
+  .final .precio-mini b{color:var(--blanco);font-size:1.6rem;letter-spacing:-.02em;display:block;margin-top:6px;}
+
+  /* ===== FOOTER ===== */
+    footer{
+    background:var(--negro);
+    color:rgba(255,255,255,.6);
+    padding:38px 0;
+    font-size:.8rem;
+    font-weight:500;
+    text-align:center;
+  }
+  footer strong{color:var(--blanco);font-weight:800;}
+  footer .sep{margin:0 10px;color:var(--morado-cl);}
+  footer .foot-main{margin-bottom:10px;}
+  footer .foot-credit{
+    font-size:.74rem;
+    color:rgba(255,255,255,.45);
+    letter-spacing:.02em;
+  }
+  footer .foot-credit a{
+    color:#c77ce8;
+    font-weight:700;
+    text-decoration:none;
+    border-bottom:1px solid rgba(199,124,232,.4);
+    transition:color .18s ease,border-color .18s ease;
+  }
+  footer .foot-credit a:hover{
+    color:var(--blanco);
+    border-bottom-color:var(--blanco);
+  }
+  
+  
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:44px;}
+    .hero{padding:56px 0 70px;}
+    .price-card{max-width:440px;margin:0 auto;}
+    section{padding:66px 0;}
+  }
+  @media(max-width:560px){
+    .hero-list{grid-template-columns:1fr;}
+    .hero h1{font-size:1.85rem;}
+    .now-price{font-size:2.8rem;}
+    .price-card{padding:34px 22px 26px;}
+    .btn{width:100%;text-align:center;padding:16px 22px;}
+    .cta-row{flex-direction:column;align-items:stretch;}
+    .strip .wrap{gap:12px 22px;}
+    .strip div{font-size:.68rem;}
+    .bf-price-row{gap:6px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== BARRA SUPERIOR ===== -->
+<div class="topbar">
+  Precio especial de noviembre · <strong>Ahorra $126</strong> sobre el valor real de $625
+  <!-- ▼▼ ENLACE BLACK FRIDAY (activar solo en BF) ▼▼
+       Para mostrar: añadir la clase "on" al span y ajustar el texto.
+  -->
+  <span class="bf-link"><span class="sep">·</span> <a href="#blackfriday">Black Friday: 20% extra →</a></span>
+  <!-- ▲▲ FIN ENLACE BLACK FRIDAY ▲▲ -->
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="wrap hero-grid">
+
+    <div>
+      <span class="badge">Paquete digital completo · Noviembre</span>
+      <h1>Todo lo que tu negocio necesita para <span>vender en línea</span>, en un solo paquete.</h1>
+      <p class="sub">
+        Sistema POS, catálogo en línea, landing page y campaña en Meta Ads.
+        Implementación completa, lista para empezar a vender.
+      </p>
+
+      <ul class="hero-list">
+        <li>Sistema POS funcional</li>
+        <li>Catálogo en línea</li>
+        <li>Landing page profesional</li>
+        <li>Campaña Meta Ads (15 días)</li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="#comprar" class="btn btn-primary">Quiero mi paquete — $499</a>
+        <a href="#incluye" class="btn btn-ghost">Ver qué incluye</a>
+      </div>
+      <p class="micro">Pago único · Sin mensualidades ocultas · Cupos limitados</p>
+    </div>
+
+    <!-- TARJETA DE PRECIO -->
+    <aside class="price-card" id="comprar">
+      <span class="tag">Precio de noviembre</span>
+
+      <p class="old-price">Valor real: <s>$625</s></p>
+      <span class="save-pill">Ahorras $126 (20%)</span>
+
+      <p class="now-price"><sup>$</sup>499</p>
+      <p class="price-note">Pago único · Todo incluido</p>
+
+      <ul>
+        <li><span>Sistema POS</span><span><s>$250</s></span></li>
+        <li><span>Catálogo en línea</span><span><s>$250</s></span></li>
+        <li><span>Landing page</span><span><s>$70</s></span></li>
+        <li><span>Campaña Meta (15 días)</span><span><s>$55</s></span></li>
+      </ul>
+
+      <a href="https://wa.me/0000000000?text=Hola%2C%20quiero%20el%20paquete%20digital%20de%20noviembre%20por%20%24499"
+         class="btn btn-morado" target="_blank" rel="noopener">Comprar ahora</a>
+      <p class="secure">🔒 Compra segura · Respuesta en menos de 24 h</p>
+    </aside>
+
+  </div>
+</header>
+
+<!-- ===== FRANJA DE VALOR ===== -->
+<div class="strip">
+  <div class="wrap">
+    <div>Pago único</div>
+    <div>Implementación incluida</div>
+    <div>Soporte por WhatsApp</div>
+    <div>Listo para vender</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ▼▼▼ BLOQUE BLACK FRIDAY — OCULTO POR DEFECTO ▼▼▼
+     PARA ACTIVAR:
+       1) Cambiar  id="blackfriday" class="bf-hidden"
+          por      id="blackfriday" class="bf-active"
+       2) Reemplazar [FECHA LÍMITE] por la fecha real (ej. 30 de noviembre)
+       3) Revisar el precio: por defecto $399 (20% sobre $499)
+       4) Opcional: activar el enlace .bf-link en la topbar (añadir clase "on")
+       5) Opcional: en la tarjeta de precio del hero, cambiar el botón
+          por uno que apunte a #blackfriday durante la fase BF.
+     ============================================================ -->
+<section id="blackfriday" class="bf-active">
+  <div class="wrap">
+    <span class="bf-flag">🔥 Black Friday · Solo esta semana</span>
+
+    <h2>20% de descuento adicional<br>sobre el <em>precio de noviembre</em></h2>
+
+    <p class="lead">
+      Aprovecha el paquete completo —POS, catálogo, landing y campaña Meta—
+      con un descuento extra que solo estará disponible hasta el
+      <strong>30/11/2026</strong>.
+    </p>
+
+    <div class="bf-price-row">
+      <span class="antes">Antes: <s>$499</s></span>
+      <span class="bf-now"><sup>$</sup>399</span>
+    </div>
+    <span class="bf-off">20% OFF adicional</span>
+
+    <div>
+      <a href="https://wa.me/584241536261?text=Hola%2C%20quiero%20aprovechar%20el%20Black%20Friday%20del%20paquete%20digital%20por%20%24399"
+         class="btn bf-cta" target="_blank" rel="noopener">Aprovechar Black Friday — $399</a>
+    </div>
+
+    <p class="bf-deadline">⏳ Oferta válida hasta el 30 de noviembre.</p>
+    <p class="bf-cupos">Solo 10 cupos disponibles · Ahorro total: $226 (36%)</p>
+  </div>
+</section>
+<!-- ▲▲▲ FIN BLOQUE BLACK FRIDAY ▲▲▲ -->
+
+<!-- ===== QUÉ INCLUYE ===== -->
+<section id="incluye">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Qué incluye</span>
+      <h2>Cuatro herramientas, un solo sistema</h2>
+      <p>Todo lo necesario para digitalizar tu negocio y empezar a captar clientes en línea.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="ico">▣</div>
+        <h3>Sistema POS</h3>
+        <p>Punto de venta para gestionar ventas, inventario y clientes desde un solo lugar.</p>
+        <div class="val">Valor: $250</div>
+      </article>
+
+      <article class="card">
+        <div class="ico">◈</div>
+        <h3>Catálogo en línea</h3>
+        <p>Tu tienda digital con productos, precios y pedidos directos por WhatsApp.</p>
+        <div class="val">Valor: $250</div>
+      </article>
+
+      <article class="card">
+        <div class="ico">▲</div>
+        <h3>Landing page</h3>
+        <p>Página profesional optimizada para convertir visitas en clientes.</p>
+        <div class="val">Valor: $70</div>
+      </article>
+
+      <article class="card">
+        <div class="ico">◉</div>
+        <h3>Campaña Meta Ads</h3>
+        <p>15 días de campaña gestionada en Facebook e Instagram para atraer tráfico real.</p>
+        <div class="val">Valor: $55</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLA DE VALOR / PRECIO ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Transparencia total</span>
+      <h2>Esto es lo que vale cada pieza</h2>
+      <p>Sin letra pequeña. Compara el valor real con el precio de noviembre.</p>
+    </div>
+
+    <div class="value-box">
+      <div class="vb-head">Desglose del paquete</div>
+      <table>
+        <tr><td>Sistema POS</td><td>$250</td></tr>
+        <tr><td>Catálogo en línea</td><td>$250</td></tr>
+        <tr><td>Landing page</td><td>$70</td></tr>
+        <tr><td>Campaña Meta Ads (15 días)</td><td>$55</td></tr>
+        <tr class="total"><td>Valor real total</td><td>$625</td></tr>
+      </table>
+      <div class="vb-foot">
+        <div class="now"><sup>$</sup>499</div>
+        <p class="save">Precio especial de noviembre · Ahorras $126</p>
+        <a href="https://wa.me/584241536261?text=Hola%2C%20quiero%20el%20paquete%20digital%20de%20noviembre%20por%20%24499"
+           class="btn btn-morado" target="_blank" rel="noopener">Comprar por $499</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section id="como">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>De la compra a la venta en 4 pasos</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Compras el paquete</h3>
+        <p>Realizas el pago único y confirmamos tu cupo por WhatsApp.</p>
+      </div>
+      <div class="step">
+        <h3>Onboarding</h3>
+        <p>Nos compartes la información de tu negocio y productos.</p>
+      </div>
+      <div class="step">
+        <h3>Implementación</h3>
+        <p>Configuramos el POS, el catálogo, la landing y la campaña.</p>
+      </div>
+      <div class="step">
+        <h3>Empiezas a vender</h3>
+        <p>Tu sistema queda activo y la campaña comienza a generar tráfico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Resolvemos tus dudas</h2>
+    </div>
+
+    <div class="faq-list">
+      <details open>
+        <summary>¿El precio de $499 es pago único?</summary>
+        <p>Sí. Es un pago único por la implementación completa del paquete. No hay mensualidades ocultas.</p>
+      </details>
+      <details>
+        <summary>¿Cuándo inicia la campaña de Meta Ads?</summary>
+        <p>La campaña de 15 días inicia dentro de los 7 días hábiles posteriores a la compra y confirmación de tu información.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si compro a finales de noviembre?</summary>
+        <p>Tu campaña se agenda para iniciar en diciembre. Te confirmamos la fecha exacta durante el onboarding.</p>
+      </details>
+      <details>
+        <summary>¿La campaña incluye el presupuesto de anuncios?</summary>
+        <p>Sí, la campaña incluye la inversión en Meta. No tienes que hacer pagos adicionales.</p>
+      </details>
+      <details>
+        <summary>¿Hay límite de cupos?</summary>
+        <p>Sí. Para garantizar la calidad de la implementación, solo hay 4 cupos disponibles.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="final">
+  <div class="wrap">
+    <span class="precio-mini">Precio especial de noviembre <b>$499</b></span>
+    <h2>Digitaliza tu negocio hoy mismo</h2>
+    <p>
+      Sistema POS, catálogo en línea, landing page y campaña Meta Ads.
+      Todo incluido, listo para empezar a vender.
+    </p>
+    <a href="https://wa.me/584241536261?text=Hola%2C%20quiero%20el%20paquete%20digital%20de%20noviembre%20por%20%24499"
+       class="btn btn-primary" target="_blank" rel="noopener">Quiero mi paquete — $499</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <p class="foot-main">
+      <strong>Paquete Digital Completo</strong>
+      <span class="sep">·</span> Noviembre 2026
+      <span class="sep">·</span> Precio especial $499 (valor real $625)
+    </p>
+    <p class="foot-credit">
+      Desarrollado por
+      <a href="https://adnebula.github.io" target="_blank" rel="noopener">Nebula Ads Pages</a>
+      <span class="sep">·</span> RIF V180288259
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
